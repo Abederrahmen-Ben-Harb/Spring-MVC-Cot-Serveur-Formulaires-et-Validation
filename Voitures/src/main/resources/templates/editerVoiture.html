@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Ajout des Voitures</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+<div class="container mt-5">
+<div class="card">
+<div class="card-header">
+Modifier des Voitures
+</div>
+<div class="card-body">
+<form th:action="@{saveVoiture}" method="post">
+<div class="form-group">
+<label class="control-label" hidden>ID Voiture :</label>
+<input type="hidden" name="idVoiture" class="form-control" th:value="${voiture.idVoiture}" />
+</div>
+<div class="form-group">
+<label class="control-label">Marque Voiture :</label>
+<input type="text" name="marqueVoiture" class="form-control" th:value="${voiture.marqueVoiture}" />
+<span th:errors= ${voiture.marqueVoiture} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">date arrivé :</label>
+<input type="date" name="dateArrive" class="form-control" th:value="${voiture.dateArrive}"/>
+<span th:errors=${voiture.dateArive} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">date sortie :</label>
+<input type="date" name="dateSortie" class="form-control" th:value="${voiture.dateSortie}"/>
+<span th:errors=${voiture.dateSortie} class="text-danger"> </span>
+</div>
+<div class="form-group">
+<label class="control-label">Prix Parking :</label>
+<input type="text" name="prixParking" class="form-control" th:value="${voiture.prixParking}" />
+<span th:errors=${voiture.prixParking} class="text-danger"> </span>
+</div>
+<div>
+<button type="submit" class="btn btn-primary">Valider</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
